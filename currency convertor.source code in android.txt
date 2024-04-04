@@ -1,0 +1,89 @@
+package com.example.currencyconverter;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    Spinner sp1, sp2;
+    EditText ed1;
+    Button b1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ed1 = findViewById(R.id.txtamount);
+        sp1 = findViewById(R.id.spfrom);
+        sp2 = findViewById(R.id.spto);
+        b1 = findViewById(R.id.bt);
+
+        String [] from = {"USD", "EROU", "BIRR", "JPY", "BGN", "CZK", "DKK", "ISK", "PLN","AUD", "INR"};
+        ArrayAdapter ad = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,from);
+        sp1.setAdapter(ad);
+        String [] to = {"USD", "EROU", "BIRR", "JPY", "BGN", "CZK", "DKK", "ISK", "PLN","AUD", "INR"};
+        ArrayAdapter ad1 = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,to);
+        sp2.setAdapter(ad1);
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double tot;
+                Double amount = Double.parseDouble(ed1.getText().toString());
+
+                if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 1){
+                    tot = amount * 0.37;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 2){
+                    tot = amount * 59.37;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                   }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 3){
+                    tot = amount * 7.37;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 4){
+                    tot = amount * 1.85;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 5){
+                    tot = amount * 11.75;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 6){
+                    tot = amount * 15.13;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 7){
+                    tot = amount * 23.01;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 8){
+                    tot = amount * 29.42;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 9){
+                    tot = amount * 9.92;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 10){
+                    tot = amount * 4.50;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+                else if(sp1.getSelectedItemId() == 0 && sp2.getSelectedItemId() == 11){
+                    tot = amount * 33.67;
+                    Toast.makeText(getApplicationContext(), tot.toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+}
